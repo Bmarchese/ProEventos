@@ -1,9 +1,11 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace ProEventos.Api.Data.Migrations
+#nullable disable
+
+namespace ProEventos.API.Data.Migrations
 {
-    public partial class Initial : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,11 +15,11 @@ namespace ProEventos.Api.Data.Migrations
                 {
                     EventoId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Local = table.Column<string>(type: "TEXT", nullable: true),
+                    Local = table.Column<string>(type: "TEXT", nullable: false),
                     DataEvento = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    Tema = table.Column<string>(type: "TEXT", nullable: true),
-                    Lote = table.Column<string>(type: "TEXT", nullable: true),
-                    ImagemURL = table.Column<string>(type: "TEXT", nullable: true),
+                    Tema = table.Column<string>(type: "TEXT", nullable: false),
+                    Lote = table.Column<string>(type: "TEXT", nullable: false),
+                    ImagemURL = table.Column<string>(type: "TEXT", nullable: false),
                     QtdPessoas = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>

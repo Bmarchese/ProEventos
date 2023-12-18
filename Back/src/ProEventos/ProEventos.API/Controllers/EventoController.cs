@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using ProEventos.Api.Data;
-using ProEventos.Api.Models;
+﻿using Microsoft.AspNetCore.Mvc;
+using ProEventos.API.Data;
+using ProEventos.API.Models;
 
-namespace ProEventos.Api.Controllers
+namespace ProEventos.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
@@ -32,7 +27,5 @@ namespace ProEventos.Api.Controllers
         {
             return _context.Eventos.Where(e => e.EventoId == id).FirstOrDefault();
         }
-
-
     }
 }

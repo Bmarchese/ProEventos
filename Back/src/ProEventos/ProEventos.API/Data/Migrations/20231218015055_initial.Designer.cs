@@ -4,21 +4,22 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using ProEventos.Api.Data;
+using ProEventos.API.Data;
 
-namespace ProEventos.Api.Data.Migrations
+#nullable disable
+
+namespace ProEventos.API.Data.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230129200734_Initial")]
-    partial class Initial
+    [Migration("20231218015055_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder
-                .HasAnnotation("ProductVersion", "5.0.2");
+            modelBuilder.HasAnnotation("ProductVersion", "6.0.25");
 
-            modelBuilder.Entity("ProEventos.Api.Models.Evento", b =>
+            modelBuilder.Entity("ProEventos.API.Models.Evento", b =>
                 {
                     b.Property<int>("EventoId")
                         .ValueGeneratedOnAdd()
@@ -28,18 +29,22 @@ namespace ProEventos.Api.Data.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("ImagemURL")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Local")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Lote")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<int>("QtdPessoas")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Tema")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("EventoId");
