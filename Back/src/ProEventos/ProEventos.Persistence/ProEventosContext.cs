@@ -18,6 +18,18 @@ namespace ProEventos.Persistence
         {
             modelBuilder.Entity<PalestranteEvento>()
                 .HasKey(PE => new { PE.EventoId, PE.PalestranteId });
+
+            // Rede Social double FKs delete cascade
+            modelBuilder.Entity<Evento>()
+                .HasMany(e => e.RedesSociais)
+                .WithOne(rs => rs.Evento)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            // Rede Social double FKs delete cascade
+            modelBuilder.Entity<Palestrante>()
+                .HasMany(p => p.RedesSociais)
+                .WithOne(rs => rs.Palestrante)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }
