@@ -1,5 +1,5 @@
 export type Evento = {
-    eventoId: number;
+    id: number;
     tema: string;
     local: string;
     dataEvento: Date;
